@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau des Sanctions - isroleplay.fr</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding: 20px;
+    }
+
+    table {
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      table {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center">Tableau des Sanctions</h1>
+    <p class="text-center">Serveur isroleplay.fr - San Andreas Multiplayer (SAMP)</p>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Infraction</th>
+            <th>Description</th>
+            <th>Première Infraction</th>
+            <th>Deuxième Infraction</th>
+            <th>Troisième Infraction</th>
+            <th>Remarques</th>
+            <th>Copier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Insultes et propos offensants</td>
+            <td>Utilisation de termes vulgaires, insultants ou discriminatoires envers d'autres joueurs</td>
+            <td>Avertissement</td>
+            <td>Mute de 30 minutes</td>
+            <td>Ban temporaire de 24 heures</td>
+            <td id="remark1">Dépend de la gravité des propos</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark1')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Non-respect du RP</td>
+            <td>Actions ou comportements qui ne respectent pas le cadre de jeu roleplay</td>
+            <td>Avertissement</td>
+            <td>Jail de 60 minutes</td>
+            <td>Ban temporaire de 48 heures</td>
+            <td id="remark2">Inclut le non-respect des règles de jeu et de conduite</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark2')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>DM (Deathmatch)</td>
+            <td>Tuer d'autres joueurs sans raison valable dans le contexte RP</td>
+            <td>Jail de 30 minutes</td>
+            <td>Ban temporaire de 24 heures</td>
+            <td>Ban temporaire de 7 jours</td>
+            <td id="remark3">Inclut les meurtres sans raison RP</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark3')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Abus de bug</td>
+            <td>Exploitation intentionnelle de bugs du jeu pour obtenir un avantage</td>
+            <td>Avertissement + Correction</td>
+            <td>Jail de 60 minutes</td>
+            <td>Ban temporaire de 7 jours</td>
+            <td id="remark4">Exploitation de bugs du jeu</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark4')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Utilisation de cheats</td>
+            <td>Utilisation de programmes ou de modifications tierces pour tricher</td>
+            <td>Ban permanent</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td id="remark5">Utilisation de programmes tiers pour tricher</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark5')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Publicité pour d'autres serveurs</td>
+            <td>Promotion ou publicité pour d'autres serveurs ou plateformes</td>
+            <td>Ban permanent</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td id="remark6">Promotion d'autres serveurs ou plateformes</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark6')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Meta-gaming</td>
+            <td>Utilisation d'informations obtenues hors du jeu pour influencer les actions en jeu</td>
+            <td>Avertissement</td>
+            <td>Jail de 30 minutes</td>
+            <td>Ban temporaire de 24 heures</td>
+            <td id="remark7">Utilisation d'informations hors-jeu dans le jeu</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark7')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Power-gaming</td>
+            <td>Réaliser des actions irréalistes ou impossibles dans le cadre RP</td>
+            <td>Avertissement</td>
+            <td>Jail de 30 minutes</td>
+            <td>Ban temporaire de 24 heures</td>
+            <td id="remark8">Actions irréalistes ou impossibles dans le jeu</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark8')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Anti-RP (Comportement hors RP)</td>
+            <td>Comportements ou actions qui ne sont pas conformes aux attentes du roleplay</td>
+            <td>Avertissement</td>
+            <td>Jail de 60 minutes</td>
+            <td>Ban temporaire de 7 jours</td>
+            <td id="remark9">Actions non conformes aux règles de roleplay</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark9')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>AFK en mission</td>
+            <td>Être AFK (Away From Keyboard) pendant une mission ou une interaction roleplay</td>
+            <td>Avertissement</td>
+            <td>Jail de 30 minutes</td>
+            <td>Ban temporaire de 24 heures</td>
+            <td id="remark10">Rester AFK en cours de mission ou d'interaction RP</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark10')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Multi-accounting</td>
+            <td>Création et utilisation de plusieurs comptes pour contourner les règles ou obtenir un avantage</td>
+            <td>Ban temporaire de 7 jours</td>
+            <td>Ban permanent</td>
+            <td>N/A</td>
+            <td id="remark11">Création et utilisation de plusieurs comptes</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark11')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Flood/Spam</td>
+            <td>Envoyer des messages répétitifs ou sans intérêt dans le chat</td>
+            <td>Avertissement</td>
+            <td>Mute de 30 minutes</td>
+            <td>Ban temporaire de 24 heures</td>
+            <td id="remark12">Envoi excessif de messages répétitifs ou inutiles</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark12')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Car Surfing</td>
+            <td>Monter sur des véhicules en mouvement de manière irréaliste</td>
+            <td>Avertissement</td>
+            <td>Jail de 30 minutes</td>
+            <td>Ban temporaire de 24 heures</td>
+            <td id="remark13">Actions irréalistes en lien avec les véhicules</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark13')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Fail RP</td>
+            <td>Échouer à respecter les situations roleplay de manière appropriée</td>
+            <td>Avertissement</td>
+            <td>Jail de 60 minutes</td>
+            <td>Ban temporaire de 48 heures</td>
+            <td id="remark14">Manque de respect des règles et contextes RP</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark14')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>OOC (Out of Character) Abuse</td>
+            <td>Utilisation abusive des canaux de communication hors rôle</td>
+            <td>Avertissement</td>
+            <td>Mute de 30 minutes</td>
+            <td>Ban temporaire de 24 heures</td>
+            <td id="remark15">Utilisation excessive ou inappropriée du chat OOC</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark15')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Insultes et propos offensants</td>
+            <td>Utilisation de termes vulgaires, insultants ou discriminatoires envers d'autres joueurs</td>
+            <td>Avertissement</td>
+            <td>Mute de 30 minutes</td>
+            <td>Ban temporaire de 24 heures</td>
+            <td id="remark1">Dépend de la gravité des propos</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark1')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Non-respect du RP</td>
+            <td>Actions ou comportements qui ne respectent pas le cadre de jeu roleplay</td>
+            <td>Avertissement</td>
+            <td>Jail de 60 minutes</td>
+            <td>Ban temporaire de 48 heures</td>
+            <td id="remark2">Inclut le non-respect des règles de jeu et de conduite</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark2')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>Incohérence RP</td>
+            <td>Utilisation pour les motifs suivants : No Fear / Mass RP / No Pain / Scène beaucoup trop incohérente
+            </td>
+            <td>Avertissement</td>
+            <td>Jail de 30 minutes</td>
+            <td>Ban temporaire de 24 heures</td>
+            <td id="remark16">Inclut les actions ou scènes incohérentes avec le cadre RP</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark16')">Copier</button></td>
+          </tr>
+          <tr>
+            <td>DM (Deathmatch)</td>
+            <td>Tuer d'autres joueurs sans raison valable dans le contexte RP</td>
+            <td>Jail de 30 minutes</td>
+            <td>Ban temporaire de 24 heures</td>
+            <td>Ban temporaire de 7 jours</td>
+            <td id="remark3">Inclut les meurtres sans raison RP</td>
+            <td><button class="btn btn-primary" onclick="copyToClipboard('remark3')">Copier</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function copyToClipboard(id) {
+      var copyText = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(copyText).then(function () {
+        alert("Remarque copiée: " + copyText);
+      }, function (err) {
+        alert("Erreur lors de la copie: ", err);
+      });
+    }
+  </script>
+</body>
+
+</html>
